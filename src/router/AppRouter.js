@@ -1,23 +1,30 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../components/Home';
-import RedirectPage from '../components/RedirectPage';
-import Dashboard from '../components/Dashboard';
-import NotFoundPage from '../components/NotFoundPage';
-class AppRouter extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="main">
-          <Switch>
-            <Route path="/" component={Home} exact={true} />
-            <Route path="/redirect" component={RedirectPage} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </div>
-      </BrowserRouter>
+import Home from '../pages/Home';
+import RedirectPage from '../pages/RedirectPage';
+import Dashboard from '../pages/Dashboard';
+import Search from '../pages/Search';
+import Library from '../pages/Library';
+import NotFoundPage from '../pages/NotFoundPage';
+import Layout from '../components/Layout';
+
+const AppRouter = (props) => {
+  return (
+    <BrowserRouter>
+    <Route render={(props)=>(
+    //Layout and sidebar can now receive props
+        <Layout {...props}>
+            <Switch>
+                <Route path="/dashboard" component={Dashboard}/>
+                <Route path="/home" component={Home}/>
+                <Route path="/redirect" component={RedirectPage}/>
+                <Route path="/search" component={Search}/>
+                <Route path="/library" component={Library}/>
+                <Route component={NotFoundPage}/>
+            </Switch>
+        </Layout>
+    )}/>
+</BrowserRouter>
     );
-  }
 }
 export default AppRouter;

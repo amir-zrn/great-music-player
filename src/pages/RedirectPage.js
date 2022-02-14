@@ -4,6 +4,7 @@ import { getParamValues } from '../utils/functions';
 export default class RedirectPage extends React.Component {
   componentDidMount() {
     const { setExpiryTime, history, location } = this.props;
+    console.log(setExpiryTime, history, location, "ttesst")
     try {
       if (_.isEmpty(location.hash)) {
         return history.push('/dashboard');

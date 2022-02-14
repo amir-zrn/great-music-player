@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
-import Header from './Header';
+import Header from '../components/Header';
 const Home = (props) => {
   
   const {
@@ -17,7 +17,7 @@ const Home = (props) => {
   return (
     <div className="login">
       <Header />
-      <Button variant="info" type="submit" onClick={handleLogin}>
+      <Button className='bg-green p-3 rounded-lg text-white m-24' variant="info" type="submit" onClick={handleLogin}>
         Login to spotify
       </Button>
     </div>
